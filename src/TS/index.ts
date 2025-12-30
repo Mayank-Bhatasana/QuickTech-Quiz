@@ -1,17 +1,36 @@
-(function () {
-    // @ts-ignore
-    const user = localStorage.getItem('sb-btzwhcdauwvywppnrddm-auth-token')
+import getUserDetails from "./functions/getUserData.ts";
+import {supabase} from "../supabase/SupabaseClint.ts";
 
-    if (!user) {
+//function to check user is auth or not
+(async function () {
+    const {data: {session}} = await supabase.auth.getSession();
+
+    if (!session) {
         window.location.href = 'src/Pages/login.html'
     }
-
 })()
+
+interface UserDetails {
+    username: string;
+    avatar_url: string;
+    total_points: number;
+}
+
+//get detail of the user
+const {username, avatar_url, total_points} = await getUserDetails() as UserDetails
+console.log(username, avatar_url, total_points)
+
 
 const avatar = document.getElementById('user-avatar') as HTMLDivElement
 const userMenu = document.getElementById('user-Menu') as HTMLDivElement
 const greater = document.getElementById('toggle-arrow') as HTMLElement
+const userPFP = document.getElementById('PFP') as HTMLImageElement
+const userName = document.getElementById('nav-user-name') as HTMLSpanElement
+const userScore = document.getElementById('nav-total-score') as HTMLSpanElement
 
+userPFP.src = avatar_url
+userName.textContent = `Hello , ${username}`
+userScore.textContent = `${total_points}`
 
 //function to open user menu
 function handleOpenUserMenu(e: Event) {

@@ -52,16 +52,12 @@ $radius-full: 9999px;
     position: relative;
 
     .avatar {
-      width: 4rem; /* 40px */
-      height: 4rem; /* 40px */
-      background: var(--bg-gradient);
+      width: 5rem; /* 40px */
+      height: 5rem; /* 40px */
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-white);
-      font-weight: bold;
-      font-size: 1.8rem;
     }
 
     .score-badge {

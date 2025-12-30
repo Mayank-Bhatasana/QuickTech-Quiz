@@ -53,7 +53,7 @@ async function handleSignUp(e: any) {
         password,
         options: {
             data: {
-                "Display name": username,
+                Display_name: username,
                 // This sends the username to your Trigger -> Profile Table
                 username,
                 avatar_url: `https://btzwhcdauwvywppnrddm.supabase.co/storage/v1/object/public/user_profile/${Math.random() * (max - min + 1)}.jpg`

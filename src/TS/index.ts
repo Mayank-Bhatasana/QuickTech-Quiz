@@ -6,7 +6,7 @@ import {supabase} from "../supabase/SupabaseClint.ts";
     const {data: {session}} = await supabase.auth.getSession();
 
     if (!session) {
-        window.location.href = 'src/Pages/login.html'
+        window.location.href = '../../src/Pages/login.html'
     }
 })()
 

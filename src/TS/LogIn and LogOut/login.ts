@@ -38,7 +38,7 @@ signUpFrm?.addEventListener('submit', handleSignUp)
 loginFrm?.addEventListener('submit', handleLogin)
 
 async function handleSignUp(e: any) {
-    const max = 2
+    const max = 3
     const min = 1;
     e.preventDefault()
     const errorSpan = document.getElementById('signUpError') as HTMLElement
